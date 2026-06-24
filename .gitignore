@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.docker
+
+# Build output
+dist/
+client/dist/
+
+# Uploads (keep directory structure)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs (keep directory structure)
+server/logs/*
+!server/logs/.gitkeep
+
+# Test coverage
+coverage/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# IDE/Editor
+.kiro/
+.vscode/
