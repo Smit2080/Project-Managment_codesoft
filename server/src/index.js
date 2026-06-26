@@ -52,14 +52,17 @@ app.use('/api/dashboard', dashboardRoutes);
 
 // Serve client static files
 const clientDistPath = path.resolve(__dirname, '..', '..', 'client', 'dist');
-app.use(express.static(clientDistPath));
+const fs = require('fs');
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
 
-// SPA fallback - serve index.html for non-API routes
-app.get('*', (req, res) => {
-  if (!req.path.startsWith('/api')) {
-    res.sendFile(path.join(clientDistPath, 'index.html'));
-  }
-});
+  // SPA fallback - serve index.html for non-API routes
+  app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(path.join(clientDistPath, 'index.html'));
+    }
+  });
+}
 
 // Error handler (must be last)
 app.use(errorHandler);
