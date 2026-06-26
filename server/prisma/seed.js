@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('Seeding database...');
 
-  const passwordHash = await bcrypt.hash('password123', 12);
+  const passwordHash = await bcrypt.hash('Demo@12345', 12);
 
   const alice = await prisma.user.upsert({
     where: { email: 'alice@example.com' },
@@ -87,7 +87,7 @@ async function main() {
   });
 
   console.log('Notifications created');
-  console.log('Seed complete! Login with alice@example.com / password123');
+  console.log('Seed complete! Login with alice@example.com / Demo@12345');
 }
 
 main()
