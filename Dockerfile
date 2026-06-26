@@ -22,4 +22,4 @@ ENV AUDIT_LOG_PATH=./logs/audit.log
 
 EXPOSE 5000
 
-CMD ["sh", "-c", "npx prisma migrate deploy && node prisma/seed.js; node src/index.js"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node src/index.js"]
